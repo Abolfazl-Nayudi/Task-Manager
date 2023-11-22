@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 
 const AuthSchema = new mongoose.Schema(
   {
-    username: {
+    email: {
       type: String,
       required: [true, 'please enter a username'],
       unique: true,

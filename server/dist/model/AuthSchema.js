@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.AuthSchema = void 0;
 const mongoose_1 = __importDefault(require("mongoose"));
 const AuthSchema = new mongoose_1.default.Schema({
-    username: {
+    email: {
         type: String,
         required: [true, 'please enter a username'],
         unique: true,

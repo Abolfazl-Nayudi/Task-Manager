@@ -1,7 +1,12 @@
+require('dotenv').config();
 import express, { Response, Request } from 'express';
-
+import { connectDB } from './config/databaseConfig';
 const app = express();
 
+// connect to database
+connectDB();
+
+// middlewares
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
