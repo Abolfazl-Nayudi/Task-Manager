@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="">
+        <label for="">email: </label>
+        <input type="email" name="email" class="email">
+        <br><br><br>
+        <label for="">password: </label>
+        <input type="text" name="password" class="password">
+        <br>
+        <button>login</button>
+    </form>
+    <script>
+        const emailInput = document.querySelector('.email')
+        const passwordInput = document.querySelector('.password')
+        const form = document.querySelector('form')
+
+        form.addEventListener('submit', async e => {
+            e.preventDefault()
+
+            const password = form.password.value
+            const email = form.email.value
+            try {
+                const res = await fetch('http://localhost:4000/v1/auth/login', {
+                    method: 'POST',
+                    body: JSON.stringify({ email, password }),
+                    headers: { 'Content-Type': 'application/json' }
+
+                })
+                console.log(res)
+                const data = await res.json()
+                console.log(data)
+            } catch (error) {
+                console.log(error)
+            }
+        })
+
+    </script>
+</body>
+
+</html>

@@ -3,6 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.AuthUtils = void 0;
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const bcrypt_1 = require("bcrypt");
 const { TOKEN_NAME, REFRESH_TOKEN, ACCESS_TOKEN } = process.env;
@@ -33,6 +34,8 @@ class AuthUtils {
         res.json({ token: accessToken });
     }
     static sendRefreshToken(req, res, refreshToken) {
+        console.log('in send refres tokne utils', refreshToken);
         res.cookie(TOKEN_NAME, refreshToken, { httpOnly: true });
     }
 }
+exports.AuthUtils = AuthUtils;

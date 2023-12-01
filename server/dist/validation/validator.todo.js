@@ -7,8 +7,8 @@ exports.TodoSchema = void 0;
 const joi_1 = __importDefault(require("joi"));
 const TodoSchema = joi_1.default.object({
     userId: joi_1.default.string().required(),
-    title: joi_1.default.string().max(20).required(),
-    description: joi_1.default.string().required(),
+    title: joi_1.default.string().trim().max(20).required(),
+    description: joi_1.default.string().trim().required(),
     isCompleted: joi_1.default.boolean().default(false),
 });
 exports.TodoSchema = TodoSchema;

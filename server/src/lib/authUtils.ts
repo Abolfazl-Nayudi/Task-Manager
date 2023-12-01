@@ -34,6 +34,9 @@ class AuthUtils {
   }
 
   static sendRefreshToken(req: Request, res: Response, refreshToken: string) {
+    console.log('in send refres tokne utils', refreshToken);
     res.cookie(TOKEN_NAME!, refreshToken, { httpOnly: true });
   }
 }
+
+export { AuthUtils };

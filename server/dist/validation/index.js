@@ -5,7 +5,7 @@ const validator_auth_1 = require("./validator.auth");
 const validator_todo_1 = require("./validator.todo");
 const validator_user_1 = require("./validator.user");
 const validator = (schema) => {
-    return (payload) => schema.validate(payload);
+    return (payload) => schema.validate(payload, { abortEarly: false });
 };
 const AuthValidation = validator(validator_auth_1.AuthSchema);
 exports.AuthValidation = AuthValidation;
