@@ -80,16 +80,12 @@ class AuthController {
     user.token = refreshToken;
     user.save();
 
-    res.cookie(TOKEN_NAME!, refreshToken, { httpOnly: true });
-    const cookie = res.cookie('test', 'hello');
-    console.log('cookie', cookie);
-    // AuthUtils.sendRefreshToken(req, res, refreshToken);
+    AuthUtils.sendRefreshToken(req, res, refreshToken);
     AuthUtils.sendAccessToken(req, res, accessToken);
   }
 
   static async logout(req: Request, res: Response) {
     res.clearCookie(TOKEN_NAME!);
-
     res
       .status(200)
       .json({ success: true, message: 'logged out successfully', data: '' });

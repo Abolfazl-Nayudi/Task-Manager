@@ -77,10 +77,7 @@ class AuthController {
             });
             user.token = refreshToken;
             user.save();
-            res.cookie(TOKEN_NAME, refreshToken, { httpOnly: true });
-            const cookie = res.cookie('test', 'hello');
-            console.log('cookie', cookie);
-            // AuthUtils.sendRefreshToken(req, res, refreshToken);
+            authUtils_1.AuthUtils.sendRefreshToken(req, res, refreshToken);
             authUtils_1.AuthUtils.sendAccessToken(req, res, accessToken);
         });
     }

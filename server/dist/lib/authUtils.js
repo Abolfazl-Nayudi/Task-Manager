@@ -34,7 +34,6 @@ class AuthUtils {
         res.json({ token: accessToken });
     }
     static sendRefreshToken(req, res, refreshToken) {
-        console.log('in send refres tokne utils', refreshToken);
         res.cookie(TOKEN_NAME, refreshToken, { httpOnly: true });
     }
 }
